@@ -50,16 +50,16 @@ export const App: React.FC = () => {
     return changeGoods;
   }
 
-  const [sortMethod, setSortMethod] = useState<SortMethod>('');
+  const [SortMethod, setSortMethod] = useState<SortMethod>('');
   const [isReverse, setIsReverse] = useState<boolean>(false);
-  const visibleGoods = sortGoods(goodsFromServer, sortMethod, isReverse);
+  const visibleGoods = sortGoods(goodsFromServer, SortMethod, isReverse);
 
   return (
     <div className="section content">
       <div className="buttons">
         <button
           type="button"
-          className={`button ${sortMethod === SORT_BY_ALPHABETICAL ? 'is-info' : 'is-light'}`}
+          className={`button ${SortMethod === SORT_BY_ALPHABETICAL ? 'is-info' : 'is-light'}`}
           onClick={() => setSortMethod(SORT_BY_ALPHABETICAL)}
         >
           Sort alphabetically
@@ -67,7 +67,7 @@ export const App: React.FC = () => {
 
         <button
           type="button"
-          className={`button ${sortMethod === SORT_BY_LENGTH ? 'is-success' : 'is-light'}`}
+          className={`button ${SortMethod === SORT_BY_LENGTH ? 'is-success' : 'is-light'}`}
           onClick={() => setSortMethod(SORT_BY_LENGTH)}
         >
           Sort by length
@@ -81,7 +81,7 @@ export const App: React.FC = () => {
           Reverse
         </button>
 
-        {(sortMethod || isReverse) && (
+        {(SortMethod || isReverse) && (
           <button
             type="button"
             className="button is-danger"
